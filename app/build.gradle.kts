@@ -72,4 +72,6 @@ dependencies {
 
     implementation("io.coil-kt.coil3:coil-compose:3.0.3")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.3")
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 }
