@@ -64,5 +64,5 @@ fr.eseo.seriestracker
 
 ## Auteurs
 
-Projet réalisé par **Manassé**, **Jean** et **Adam** 
+Projet réalisé par **Manassé PASSI DE MANDA**, **Jean GOMES** et **Adam KALAA** 
 ESEO 2025-2026
