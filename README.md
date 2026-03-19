@@ -4,9 +4,9 @@ C'est une application Android permettant de lister les séries TV les plus popul
 
 ## Aperçu
 
-| Chargement | Liste des séries | Erreur réseau |
-|:-----------:|:----------------:|:-------------:|
-| *(capture à venir)* | *(capture à venir)* | *(capture à venir)* |
+| Liste des séries | Statut en cours | Erreur réseau |
+|:----------------:|:---------------:|:-------------:|
+| ![Liste](screenshots/screen_liste.jpeg) | ![Running](screenshots/screen_running.jpeg) | ![Erreur](screenshots/screen_erreur.jpeg) |
 
 ## Stack technique
 
