@@ -10,7 +10,12 @@ import javax.inject.Singleton
 class SeriesRepository @Inject constructor(
     private val seriesApi: SeriesApi
 ) {
-    suspend fun getPopulaires(): List<TvShow> {
-        return seriesApi.getMostPopular().tvShows.map { it.toDomain() }
+    suspend fun getPopulaires(): Result<List<TvShow>> {
+        return try {
+            val shows = seriesApi.getMostPopular().tvShows.map { it.toDomain() }
+            Result.success(shows)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
     }
 }

@@ -33,11 +33,11 @@ class PopulairesViewModel @Inject constructor(
     fun chargerSeries() {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }
-            try {
-                val series = repository.getPopulaires()
-                _uiState.update { it.copy(series = series, isLoading = false) }
-            } catch (e: Exception) {
-                _uiState.update { it.copy(isLoading = false, error = e.localizedMessage ?: "Erreur inconnue") }
+            val result = repository.getPopulaires()
+            if (result.isSuccess) {
+                _uiState.update { it.copy(series = result.getOrDefault(emptyList()), isLoading = false) }
+            } else {
+                _uiState.update { it.copy(isLoading = false, error = result.exceptionOrNull()?.localizedMessage ?: "Erreur inconnue") }
             }
         }
     }
