@@ -1,6 +1,6 @@
 # SeriesTracker
 
-Application Android permettant de lister les séries TV les plus populaires, développée dans le cadre du cours de Développement Mobile Android (ESEO — S8).
+C'est une application Android permettant de lister les séries TV les plus populaires, développée dans le cadre du cours de Développement Mobile Android (ESEO-S8).
 
 ## Aperçu
 
@@ -64,4 +64,5 @@ fr.eseo.seriestracker
 
 ## Auteurs
 
-Projet réalisé par **Jean** et **Adam** — ESEO 2025-2026
+Projet réalisé par **Manassé**, **Jean** et **Adam** 
+ESEO 2025-2026
