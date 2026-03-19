@@ -32,7 +32,7 @@ C'est une application Android permettant de lister les séries TV les plus popul
 
 1. Cloner le dépôt :
    ```bash
-   git clone https://github.com/<votre-repo>/SeriesTracker-Android.git
+   git clone https://github.com/GomesJ7/SeriesTrackerProject.git
    ```
 2. Ouvrir le dossier `SeriesTrackerProject` dans Android Studio
 3. Faire **Sync Project with Gradle Files**
