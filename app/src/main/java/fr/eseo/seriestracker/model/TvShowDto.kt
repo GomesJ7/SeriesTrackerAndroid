@@ -12,3 +12,23 @@ data class TvShowDto(
     @SerializedName("status") val status: String,
     @SerializedName("image_thumbnail_path") val imageThumbnailPath: String
 )
+
+data class TvShow(
+    val id: Int,
+    val name: String,
+    val network: String,
+    val country: String,
+    val status: String,
+    val imageUrl: String
+)
+
+fun TvShowDto.toDomain(): TvShow {
+    return TvShow(
+        id = this.id,
+        name = this.name,
+        network = this.network ?: "Inconnu",
+        country = this.country ?: "Inconnu",
+        status = this.status,
+        imageUrl = this.imageThumbnailPath
+    )
+}
