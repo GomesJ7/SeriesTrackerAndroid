@@ -1,4 +1,4 @@
-package fr.eseo.seriestracker.ui.theme
+package fr.eseo.seriestracker.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,7 +15,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EcranAccueil(viewModel: PopulairesViewModel = hiltViewModel()) {
-    // Observation de l'état [cite: 71]
+    // Observation de l'état
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Scaffold(
@@ -35,11 +35,11 @@ fun EcranAccueil(viewModel: PopulairesViewModel = hiltViewModel()) {
             contentAlignment = Alignment.Center
         ) {
             when {
-                // État de chargement [cite: 72]
+                // État de chargement
                 uiState.isLoading -> {
                     CircularProgressIndicator()
                 }
-                // État d'erreur [cite: 72]
+                // État d'erreur
                 uiState.error != null -> {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
@@ -52,7 +52,7 @@ fun EcranAccueil(viewModel: PopulairesViewModel = hiltViewModel()) {
                         }
                     }
                 }
-                // État de succès [cite: 75]
+                // État de succès
                 else -> {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize()

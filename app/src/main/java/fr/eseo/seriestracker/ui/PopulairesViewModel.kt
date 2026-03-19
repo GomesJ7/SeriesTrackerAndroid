@@ -1,4 +1,4 @@
-package fr.eseo.seriestracker.ui.theme
+package fr.eseo.seriestracker.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

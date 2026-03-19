@@ -1,4 +1,4 @@
-package fr.eseo.seriestracker.ui.theme
+package fr.eseo.seriestracker.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -41,7 +41,7 @@ fun CarteSerie(tvShow: TvShow) {
             Column(
                 modifier = Modifier.fillMaxWidth()
             ) {
-                // Titre [cite: 67]
+                // Titre
                 Text(
                     text = tvShow.name,
                     style = MaterialTheme.typography.titleLarge,
@@ -49,14 +49,14 @@ fun CarteSerie(tvShow: TvShow) {
                 )
                 Spacer(modifier = Modifier.height(4.dp))
 
-                // Chaîne et pays [cite: 68]
+                // Chaîne et pays
                 Text(
                     text = "${tvShow.network} - ${tvShow.country}",
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Badge coloré pour le statut [cite: 69]
+                // Badge coloré pour le statut
                 val statusColor = if (tvShow.status == "Running") Color(0xFF4CAF50) else Color.Gray
                 Box(
                     modifier = Modifier

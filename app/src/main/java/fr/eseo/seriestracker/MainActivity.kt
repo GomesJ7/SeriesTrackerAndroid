@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import fr.eseo.seriestracker.ui.theme.EcranAccueil
+import fr.eseo.seriestracker.ui.EcranAccueil
 import fr.eseo.seriestracker.ui.theme.SeriesTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
 
