@@ -28,7 +28,7 @@ class PopulairesViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            repository.observePopulaires().collect { shows ->
+            repository.observePopular().collect { shows ->
                 _uiState.update { it.copy(series = shows) }
             }
         }
@@ -38,7 +38,7 @@ class PopulairesViewModel @Inject constructor(
     fun chargerSeries() {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }
-            val result = repository.refreshPopulaires()
+            val result = repository.refreshPopular()
             if (result.isFailure) {
                 _uiState.update {
                     it.copy(

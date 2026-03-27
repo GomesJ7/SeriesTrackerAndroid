@@ -17,13 +17,13 @@ class SeriesRepositoryImpl @Inject constructor(
     private val preferencesManager: PreferencesManager
 ) : SeriesRepository {
 
-    override fun observePopulaires(): Flow<List<TvShow>> {
+    override fun observePopular(): Flow<List<TvShow>> {
         return tvShowDao.getAllShows().map { entities ->
             entities.map { it.toDomain() }
         }
     }
 
-    override suspend fun refreshPopulaires(): Result<Unit> {
+    override suspend fun refreshPopular(): Result<Unit> {
         return try {
             val shows = seriesApi.getMostPopular().tvShows.map { it.toDomain() }
             tvShowDao.deleteAll()
