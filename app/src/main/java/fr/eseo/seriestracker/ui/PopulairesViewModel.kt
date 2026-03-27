@@ -2,9 +2,9 @@ package fr.eseo.seriestracker.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import fr.eseo.seriestracker.model.TvShow
 import fr.eseo.seriestracker.repository.SeriesRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -27,17 +27,27 @@ class PopulairesViewModel @Inject constructor(
     val uiState: StateFlow<PopulairesUiState> = _uiState.asStateFlow()
 
     init {
+        viewModelScope.launch {
+            repository.observePopulaires().collect { shows ->
+                _uiState.update { it.copy(series = shows) }
+            }
+        }
         chargerSeries()
     }
 
     fun chargerSeries() {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }
-            val result = repository.getPopulaires()
-            if (result.isSuccess) {
-                _uiState.update { it.copy(series = result.getOrDefault(emptyList()), isLoading = false) }
+            val result = repository.refreshPopulaires()
+            if (result.isFailure) {
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        error = result.exceptionOrNull()?.localizedMessage ?: "Erreur inconnue"
+                    )
+                }
             } else {
-                _uiState.update { it.copy(isLoading = false, error = result.exceptionOrNull()?.localizedMessage ?: "Erreur inconnue") }
+                _uiState.update { it.copy(isLoading = false) }
             }
         }
     }
